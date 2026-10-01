@@ -16,7 +16,7 @@ const CategoryHeader = ({ user, onBrandClick }) => {
                 <div
                     onClick={onBrandClick}
                     className="">
-                    <img src={APP_CONFIG.LOGO_SM} alt={APP_CONFIG.NAME} className="w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-xl shadow-black/30 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 object-cover" />
+                    <img src={APP_CONFIG.LOGO_SM} alt={APP_CONFIG.NAME} className="w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-xl shadow-black/30 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 object-contain" />
                 </div>
             </motion.div>
         </div>

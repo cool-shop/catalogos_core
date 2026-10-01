@@ -12,14 +12,14 @@ const BottomNav = ({ isHidden, onHomeClick, onBrandClick, onSearchClick, onRecen
             >
                 <button
                     onClick={onHomeClick}
-                    className="nav-pill hover:scale-110 transition-transform"
+                    className="hover:scale-110 transition-transform"
                 >
                     <Home size={26} strokeWidth={2.5} />
                     <span className="text-[10px] font-black uppercase tracking-tighter">Inicio</span>
                 </button>
                 <button
                     onClick={onSearchClick}
-                    className="nav-pill hover:text-cat-contrast/50 hover:scale-110 transition-transform"
+                    className="hover:scale-110 transition-transform"
                 >
                     <Search size={26} />
                     <span className="text-[10px] font-bold uppercase tracking-tighter">Buscar</span>
@@ -29,18 +29,18 @@ const BottomNav = ({ isHidden, onHomeClick, onBrandClick, onSearchClick, onRecen
                     className=""
                 >
                     {/* <ShoppingBag size={32} /> */}
-                    <img src={APP_CONFIG.LOGO_SM} alt="logo small" className="w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-2xl shadow-cat-orange/40 -mt-20 text-white cursor-pointer hover:rotate-12 hover:scale-110 active:scale-90 transition-all font-black" />
+                    <img src={APP_CONFIG.LOGO_SM} alt="logo small" className="bg-cat-dark w-16 h-16 sm:w-24 sm:h-24 rounded-full shadow-2xl shadow-cat-orange/40 -mt-20 text-white cursor-pointer hover:rotate-12 hover:scale-110 active:scale-90 transition-all font-black" />
                 </div>
                 <button
                     onClick={onRecentClick}
-                    className="nav-pill hover:text-cat-contrast/50 hover:scale-110 transition-transform"
+                    className="hover:scale-110 transition-transform"
                 >
                     <Clock size={26} />
                     <span className="text-[10px] font-bold uppercase tracking-tighter">Vistos</span>
                 </button>
                 <button
                     onClick={onProfileClick}
-                    className="nav-pill hover:text-cat-contrast/50 hover:scale-110 transition-transform"
+                    className="hover:scale-110 transition-transform"
                 >
                     <User size={26} />
                     <span className="text-[10px] font-bold uppercase tracking-tighter">Perfil</span>

@@ -36,7 +36,7 @@ const BrandInfo = ({ onClose }) => {
                         <div className="">
                             <img src={APP_CONFIG.LOGO} alt={APP_CONFIG.NAME} className="sm:w-48 sm:h-48 w-48 h-48 rounded-[8rem] flex items-center justify-center text-white shadow-2xl shadow-cat-dark/50 mx-auto mb-8 transform" />
                         </div>
-                        <h1 className="text-4xl sm:text-6xl font-black text-cat-contrast mb-6 uppercase leading-tight">{about.title}</h1>
+                        <h1 className="text-4xl font-black text-cat-contrast mb-6 uppercase leading-tight">{about.title}</h1>
                         <p className="text-lg text-cat-light max-w-2xl mx-auto leading-relaxed font-medium">
                             {about.subtitle}
                         </p>
