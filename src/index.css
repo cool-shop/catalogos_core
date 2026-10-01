@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'gothic_font';
+  src: url('/public/fonts/GermaniaOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  /* Mejora el rendimiento de carga visual */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cat-dark text-cat-light font-outfit min-h-screen pb-24;
+  }
+}
+
+@layer components {
+  .card-premium {
+    @apply bg-cat-darkest/50 rounded-[2.5rem] transition-all duration-300 border border-cat-light/10;
+    /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.50); */
+  }
+
+  .btn-action {
+    @apply bg-cat-dark text-white px-6 py-3 rounded-2xl font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 hover:opacity-90;
+  }
+
+  .nav-pill {
+    @apply flex flex-col items-center justify-center gap-1 text-slate-400 transition-colors;
+  }
+
+  .nav-pill-active {
+    @apply text-cat-teal-dark;
+  }
+}
+
+/* Hide scrollbar for cleaner look */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'gothic_font', sans-serif;
+}
+
+
+.main-text {
+  font-family: 'gothic_font', sans-serif;
+}
