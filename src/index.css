@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
-@font-face {
-  font-family: 'gothic_font';
-  src: url('/public/fonts/GermaniaOne-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-  /* Mejora el rendimiento de carga visual */
-}
+@import './fonts.css';
 
 @tailwind base;
 @tailwind components;
@@ -54,10 +46,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'gothic_font', sans-serif;
+  font-family: var(--font-main), sans-serif;
 }
 
 
 .main-text {
-  font-family: 'gothic_font', sans-serif;
+  font-family: var(--font-main), sans-serif;
 }
