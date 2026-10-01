@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GOOGLE_DRIVE_CONFIG } from '../config';
+import { GOOGLE_DRIVE_CONFIG } from '../../../config';
 
 const API_KEY = GOOGLE_DRIVE_CONFIG.API_KEY;
 

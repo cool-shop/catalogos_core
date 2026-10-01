@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { User, Mail, ShieldCheck, ShieldAlert, LogOut, ChevronLeft, Plus } from 'lucide-react';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
-import { GOOGLE_DRIVE_CONFIG } from '../config';
+import { GOOGLE_DRIVE_CONFIG } from '../../../config';
 
 const ProfileView = ({ user, setUser, isAdmin, onLogout, onClose, onAdminClick }) => {
 

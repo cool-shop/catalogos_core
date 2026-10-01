@@ -1,5 +1,5 @@
 import { SiFacebook, SiInstagram, SiWhatsapp } from '@icons-pack/react-simple-icons';
-import { BANNER_CONFIG, BRAND_TEXTS } from '../config';
+import { BANNER_CONFIG, BRAND_TEXTS } from '../../../config';
 
 const HeroBanner = ({ onActionClick }) => {
     return (

@@ -13,7 +13,7 @@ import {
     CheckCircle2,
     X
 } from 'lucide-react';
-import { GOOGLE_DRIVE_CONFIG } from '../config';
+import { GOOGLE_DRIVE_CONFIG } from '../../../config';
 import { fetchFolderFiles, uploadFileToDrive, updateFileMetadata, deleteFileFromDrive } from '../services/googleDrive';
 import { parseDescription } from '../utils/helpers';
 
@@ -193,7 +193,7 @@ const AdminPanel = ({ user, onClose, initialProductToEdit }) => {
     const startEditing = (product) => {
         const parsed = parseDescription(product.description);
         setEditingProduct(product);
-        
+
         let targetCategoryId = selectedFolder?.id || '';
         const parentId = product.parents?.[0];
         if (parentId) {

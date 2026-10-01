@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { APP_CONFIG } from '../config';
+import { APP_CONFIG } from '../../../config';
 
 const CategoryHeader = ({ user, onBrandClick }) => {
     return (

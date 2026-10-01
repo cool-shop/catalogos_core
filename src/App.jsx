@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import axios from 'axios';
-import { GOOGLE_DRIVE_CONFIG, APP_CONFIG } from './config';
+import { GOOGLE_DRIVE_CONFIG, APP_CONFIG } from '../../config';
 import { fetchFolderFiles, fetchFileById, getPermanentImageUrl } from './services/googleDrive';
 import { parseDescription } from './utils/helpers';
 

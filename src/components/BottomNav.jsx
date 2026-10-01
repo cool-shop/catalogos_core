@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Home, Search, ShoppingBag, User, Clock } from 'lucide-react';
-import { APP_CONFIG } from '../config';
+import { APP_CONFIG } from '../../../config';
 
 const BottomNav = ({ isHidden, onHomeClick, onBrandClick, onSearchClick, onRecentClick, onProfileClick }) => {
     return (

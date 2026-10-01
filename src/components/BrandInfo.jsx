@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronLeft, Heart, Target, Star } from 'lucide-react';
 import { SiFacebook, SiInstagram, SiWhatsapp } from '@icons-pack/react-simple-icons';
-import { APP_CONFIG, BRAND_TEXTS } from '../config';
+import { APP_CONFIG, BRAND_TEXTS } from '../../../config';
 
 const BrandInfo = ({ onClose }) => {
     const about = BRAND_TEXTS.ABOUT;

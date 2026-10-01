@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import { GOOGLE_DRIVE_CONFIG } from '../config';
+import { GOOGLE_DRIVE_CONFIG } from '../../../config';
 
 const CategoryGrid = ({ activeCategory, setActiveCategory }) => {
     return (
