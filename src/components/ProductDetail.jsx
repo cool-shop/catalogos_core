@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ShoppingBag, MessageCircle, File, Edit } from 'lucide-react';
 import { SiFacebook, SiWhatsapp } from '@icons-pack/react-simple-icons';
 
-import { CONTACT_CONFIG } from '../config';
+import { CONTACT_CONFIG } from '../../../config';
 import { parseDescription } from '../utils/helpers';
 
 const ProductDetail = ({ selectedProduct, setSelectedProduct, selectedVariant, setSelectedVariant, isZoomed, setIsZoomed, activeCategory, isAdmin, onEditProduct }) => {
