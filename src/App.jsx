@@ -340,7 +340,7 @@ function App() {
 
         <div
           ref={searchRef}
-          className="sticky top-0 z-40 bg-[#051D1F]/5 py-4 transition-all"
+          className="backdrop-blur-xl sticky top-0 z-40 py-4 transition-all"
           style={{
             maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'

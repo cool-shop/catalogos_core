@@ -3,8 +3,8 @@ import { Search } from 'lucide-react';
 
 const SearchBar = React.forwardRef(({ searchTerm, setSearchTerm, activeCategory }, ref) => {
     return (
-        <div className="px-6 sm:px-12">
-            <div className="relative">
+        <div className="px-6 sm:px-12 ">
+            <div className="relative ">
                 <Search className="text-cat-contrast/50 absolute left-5 top-1/2 -translate-y-1/2" size={20} />
                 <input
                     ref={ref}
