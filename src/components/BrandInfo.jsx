@@ -53,7 +53,7 @@ const BrandInfo = ({ onClose }) => {
                         const iconColor = iconColors[idx % iconColors.length];
                         return (
                             <div key={idx} className="bg-cat-darkest/50 p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                                <div className={`w-16 h-16 bg-cat-light mx-auto ${iconColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                                <div className={`w-16 h-16 bg-white/90 mx-auto ${iconColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                                     <IconComponent size={32} />
                                 </div>
                                 <h3 className="text-xl font-black text-cat-contrast mb-3 uppercase text-center">{card.title}</h3>
