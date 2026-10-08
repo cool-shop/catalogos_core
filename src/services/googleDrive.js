@@ -98,13 +98,14 @@ export const fetchFolderFiles = async (folderId, pageToken = null, pageSize = 12
     }
 
     try {
-        const query = `'${cleanId}' in parents AND mimeType contains 'image/' AND trashed = false`;
+        // Include both images and shortcuts so Drive shortcuts resolve correctly
+        const query = `'${cleanId}' in parents AND (mimeType contains 'image/' OR mimeType = 'application/vnd.google-apps.shortcut') AND trashed = false`;
         const response = await axios.get(
             `https://www.googleapis.com/drive/v3/files`,
             {
                 params: {
                     q: query,
-                    fields: 'nextPageToken, files(id, name, thumbnailLink, description, createdTime)',
+                    fields: 'nextPageToken, files(id, name, thumbnailLink, description, createdTime, mimeType, shortcutDetails)',
                     pageSize: pageSize,
                     pageToken: pageToken,
                     orderBy: orderBy,
@@ -113,19 +114,59 @@ export const fetchFolderFiles = async (folderId, pageToken = null, pageSize = 12
             }
         );
 
-        const files = response.data.files.map(file => ({
-            id: file.id,
-            name: file.name.split('.')[0],
-            description: file.description || '',
-            createdTime: file.createdTime,
-            // Use permanent Google Drive URL format based on file ID
-            image: getPermanentImageUrl(file.id, 1000),
-            thumbnail: getPermanentImageUrl(file.id, 400),
-            driveUrl: `https://drive.google.com/open?id=${file.id}`
-        }));
+        // Resolve shortcuts: use the target file ID for images
+        const files = await Promise.all(
+            response.data.files.map(async (file) => {
+                let fileId = file.id;
+                let fileName = file.name;
+                let fileDescription = file.description || '';
+                let fileCreatedTime = file.createdTime;
+
+                if (file.mimeType === 'application/vnd.google-apps.shortcut' && file.shortcutDetails) {
+                    // Only resolve shortcuts that point to image files
+                    const targetMime = file.shortcutDetails.targetMimeType || '';
+                    if (!targetMime.startsWith('image/')) return null;
+
+                    const targetId = file.shortcutDetails.targetId;
+                    try {
+                        // Fetch the target file's metadata for name/description
+                        const targetResponse = await axios.get(
+                            `https://www.googleapis.com/drive/v3/files/${targetId}`,
+                            {
+                                params: {
+                                    fields: 'id, name, description, createdTime',
+                                    key: API_KEY,
+                                },
+                            }
+                        );
+                        fileId = targetResponse.data.id;
+                        fileName = targetResponse.data.name;
+                        fileDescription = targetResponse.data.description || fileDescription;
+                        fileCreatedTime = targetResponse.data.createdTime || fileCreatedTime;
+                    } catch (e) {
+                        // If we can't fetch target metadata, use the target ID directly
+                        fileId = targetId;
+                    }
+                }
+
+                return {
+                    id: fileId,
+                    name: fileName.split('.')[0],
+                    description: fileDescription,
+                    createdTime: fileCreatedTime,
+                    // Use permanent Google Drive URL format based on file ID
+                    image: getPermanentImageUrl(fileId, 1000),
+                    thumbnail: getPermanentImageUrl(fileId, 400),
+                    driveUrl: `https://drive.google.com/open?id=${fileId}`
+                };
+            })
+        );
+
+        // Filter out null entries (non-image shortcuts)
+        const validFiles = files.filter(Boolean);
 
         return {
-            files,
+            files: validFiles,
             nextPageToken: response.data.nextPageToken || null
         };
     } catch (error) {
